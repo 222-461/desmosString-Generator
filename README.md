@@ -1,4 +1,4 @@
-# aCBA- an automated coordinate-based string art generator for Desmos:
+# aCBA- an automated coordinate-based art generator for Desmos
 Generator uses arrays of coordinates for art. 
 
 Procedure for using the program:
