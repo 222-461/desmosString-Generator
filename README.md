@@ -11,5 +11,6 @@ Procedure for using the program:
 - Refer to aCBA_ConsoleCMD.txt for commands to run in browser console to change graph form
 
 - Launch aCBA_SR to delete all files generated during execution and to wipe generator input file
+- **NOTE: Please run the aCBA_OPTIONAL.py file as the design is generated upside down
 
 ** RESULTS MAY VARY DEPENDING ON PLATFORM. **
