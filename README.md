@@ -10,4 +10,6 @@ Procedure for using the program:
 - Copy generated coordinates from aCBA_coordinateExport.txt into desmos
 - Refer to aCBA_ConsoleCMD.txt for commands to run in browser console to change graph form
 
+- Launch aCBA_SR to delete all files generated during execution and to wipe generator input file
+
 ** RESULTS MAY VARY DEPENDING ON PLATFORM. **
