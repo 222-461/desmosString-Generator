@@ -173,7 +173,7 @@ def aCBA_S4(pInputPath, pOutputPath):
             coordinateReflected = coordinates.copy()
             reflectValidation = True
         else:
-            print("Invalid input. Please enter x or y.")
+            print("Invalid Input")
         
     # Export reflected coordinates
     exportData(OUTPUTREFLECT, coordinateReflected)
