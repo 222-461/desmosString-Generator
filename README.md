@@ -3,14 +3,9 @@ Generator uses arrays of coordinates for art.
 
 Procedure for using the program:
 - Use halfmonty's string art generator program found here to generate steps: https://halfmonty.github.io/StringArtGenerator/
-  - Chromium will work as it does not support js recursion for pins above 300. Use FireFox instead. 
+  - Chromium will not work as it does not support js recursion for pins above 300. Please use FireFox instead. 
 - Copy and paste the steps into provided aCBA_generatorExport.txt
-- Run aCBA_S0 program. Error can be disregarded
-- If required, launch aCBA_OPTIONAL to reflect art against axis
-- Copy generated coordinates from aCBA_coordinateExport.txt into desmos
-- Refer to aCBA_ConsoleCMD.txt for commands to run in browser console to change graph form
-
-- Launch aCBA_SR to delete all files generated during execution and to wipe generator input file
-- **NOTE: Please run the aCBA_OPTIONAL.py file as the design is generated upside down
+- Run aCBA_Generator.py, copy generated coordinates from aCBA_coordinateExport.txt into desmos. Copy before wipe! 
+- Refer to aCBA_ConsoleCMD.txt for command to run in browser console to change graph form
 
 ** RESULTS MAY VARY DEPENDING ON PLATFORM. **
