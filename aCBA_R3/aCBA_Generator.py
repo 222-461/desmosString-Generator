@@ -13,7 +13,7 @@ import os
 INPUTGEN = "aCBA_generatorExport.txt"  # S2 INPUT
 
 OUTPUTPOINTS = "aCBA_pointExport.txt"  # S1 OUTPUT & S3 INPUT
-OUTPUTPINS = "aCBA_pinExport.txt"      # S2 OUTPUT & and S3 INPUT
+OUTPUTPINS = "aCBA_pinExport.txt"      # S2 OUTPUT & S3 INPUT
 
 OUTPUTCOORDINATES = "aCBA_coordinateExport.txt"  # S3 OUTPUT & S4 INPUT 
 OUTPUTREFLECT = "aCBA_OUTPUT.txt"     # S4 INPUT & OUTPUT
