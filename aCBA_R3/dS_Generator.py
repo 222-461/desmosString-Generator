@@ -1,5 +1,5 @@
 # ========================================================================================================================
-# aCBA Generator REWRITE v0.1
+# dS Generator REWRITE v0.1
 # ========================================================================================================================
 
 # Libraries
@@ -10,13 +10,13 @@ import os
 
 # Constants
 
-INPUTGEN = "aCBA_generatorExport.txt"  # S2 INPUT
+INPUTGEN = "dS_generatorExport.txt"  # S2 INPUT
 
-OUTPUTPOINTS = "aCBA_pointExport.txt"  # S1 OUTPUT & S3 INPUT
-OUTPUTPINS = "aCBA_pinExport.txt"      # S2 OUTPUT & S3 INPUT
+OUTPUTPOINTS = "dS_pointExport.txt"  # S1 OUTPUT & S3 INPUT
+OUTPUTPINS = "dS_pinExport.txt"      # S2 OUTPUT & S3 INPUT
 
-OUTPUTCOORDINATES = "aCBA_coordinateExport.txt"  # S3 OUTPUT & S4 INPUT 
-OUTPUTREFLECT = "aCBA_OUTPUT.txt"     # S4 INPUT & OUTPUT
+OUTPUTCOORDINATES = "dS_coordinateExport.txt"  # S3 OUTPUT & S4 INPUT 
+OUTPUTREFLECT = "dS_OUTPUT.txt"     # S4 INPUT & OUTPUT
 
 WIPELIST = [OUTPUTCOORDINATES,
             OUTPUTREFLECT,
@@ -29,13 +29,13 @@ setting = ""
 
 # Subprograms
 
-def aCBA_S1(pInputPin):
+def dS_S1(pInputPin):
     
     # Local Variable Initialization
     
     coordinates = []
 
-    # aCBA_S1 Main Process
+    # dS_S1 Main Process
 
     circleRadius = float(input("Radius: "))
     circlePins = int(input("Pins: "))
@@ -55,9 +55,9 @@ def aCBA_S1(pInputPin):
 
     print("Stage 1 - Successful Execution")
 
-def aCBA_S2(pInputGenerator, pOutputPin):
+def dS_S2(pInputGenerator, pOutputPin):
     
-    # aCBA_S2 Main Process
+    # dS_S2 Main Process
     
     with open(pInputGenerator, "r") as stringData:
         rawData = stringData.read().strip()
@@ -71,7 +71,7 @@ def aCBA_S2(pInputGenerator, pOutputPin):
 
     print("Stage 2 - Successful Execution")
 
-def aCBA_S3(pCirclePoints, pImportPin, pOutputCoord):
+def dS_S3(pCirclePoints, pImportPin, pOutputCoord):
     
     # Subprograms
     
@@ -81,7 +81,7 @@ def aCBA_S3(pCirclePoints, pImportPin, pOutputCoord):
         except:
             return None
 
-    # aCBA_S3 Main Process
+    # dS_S3 Main Process
 
     pointExportData = {}
     
@@ -115,7 +115,7 @@ def aCBA_S3(pCirclePoints, pImportPin, pOutputCoord):
 
     print("Stage 3 - Successful Execution")
 
-def aCBA_S4(pInputPath, pOutputPath):
+def dS_S4(pInputPath, pOutputPath):
     
     # Local Variable Initialization
     axisX = 0
@@ -154,7 +154,7 @@ def aCBA_S4(pInputPath, pOutputPath):
                 point2 = coordinates[index + 1]
                 coordinateList.write(f"({point1[0]},{point1[1]}),({point2[0]},{point2[1]})\n")
 
-    # aCBA_S4 Main Process
+    # dS_S4 Main Process
     # Read the original coordinates
     coordinates = importData(OUTPUTCOORDINATES)
 
@@ -180,13 +180,13 @@ def aCBA_S4(pInputPath, pOutputPath):
         
     print("Stage 4 - Successful Execution")
 
-def aCBA_S5(pGenFile, pWipe):
+def dS_S5(pGenFile, pWipe):
     
     # Local Variable Initialization
 
     index = 0
 
-    # aCBA_S5 Main Process
+    # dS_S5 Main Process
 
     # Iteration through WIPELIST to wipe files
     while index < len(pWipe):
@@ -201,15 +201,15 @@ def aCBA_S5(pGenFile, pWipe):
     with open(pGenFile, "w") as openFile:
         openFile.truncate(0)
 
-    print("aCBA_generatorExport.txt successfully wiped")
+    print("dS_generatorExport.txt successfully wiped")
     print("Stage 5 - Successful Execution")
 
 # Main Program
 
-aCBA_S1(OUTPUTPOINTS) # Generate Pin Positions
-aCBA_S2(INPUTGEN, OUTPUTPINS) # Convert Format
-aCBA_S3(OUTPUTPOINTS, OUTPUTPINS, OUTPUTCOORDINATES) # Generate Coordinates
-aCBA_S4(OUTPUTCOORDINATES, OUTPUTREFLECT) # Reflection
+dS_S1(OUTPUTPOINTS) # Generate Pin Positions
+dS_S2(INPUTGEN, OUTPUTPINS) # Convert Format
+dS_S3(OUTPUTPOINTS, OUTPUTPINS, OUTPUTCOORDINATES) # Generate Coordinates
+dS_S4(OUTPUTCOORDINATES, OUTPUTREFLECT) # Reflection
 
 # Wipe / Quit
 while setting != "Q" and setting != "W":
@@ -217,6 +217,6 @@ while setting != "Q" and setting != "W":
     setting = setting.upper()
     
     if setting == "W":
-        aCBA_S5(INPUTGEN, WIPELIST) # Wipe Files
+        dS_S5(INPUTGEN, WIPELIST) # Wipe Files
 
 print("Program Successfully Terminated")
