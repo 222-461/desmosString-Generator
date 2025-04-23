@@ -1,4 +1,4 @@
-# dS- an automated coordinate-based art generator for Desmos
+# dS - an automated coordinate-based art generator for Desmos
 Generator uses arrays of coordinates for art. 
 
 Procedure for using the program:
