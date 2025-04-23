@@ -1,5 +1,5 @@
 # ========================================================================================================================
-# dS Generator REWRITE v0.1
+# dSArt Generator REWRITE v0.1
 # ========================================================================================================================
 
 # Libraries
@@ -10,13 +10,13 @@ import os
 
 # Constants
 
-INPUTGEN = "dS_generatorExport.txt"  # S2 INPUT
+INPUTGEN = "dSArt_generatorExport.txt"  # S2 INPUT
 
-OUTPUTPOINTS = "dS_pointExport.txt"  # S1 OUTPUT & S3 INPUT
-OUTPUTPINS = "dS_pinExport.txt"      # S2 OUTPUT & S3 INPUT
+OUTPUTPOINTS = "dSArt_pointExport.txt"  # S1 OUTPUT & S3 INPUT
+OUTPUTPINS = "dSArt_pinExport.txt"      # S2 OUTPUT & S3 INPUT
 
-OUTPUTCOORDINATES = "dS_coordinateExport.txt"  # S3 OUTPUT & S4 INPUT 
-OUTPUTREFLECT = "dS_OUTPUT.txt"     # S4 INPUT & OUTPUT
+OUTPUTCOORDINATES = "dSArt_coordinateExport.txt"  # S3 OUTPUT & S4 INPUT 
+OUTPUTREFLECT = "dSArt_OUTPUT.txt"     # S4 INPUT & OUTPUT
 
 WIPELIST = [OUTPUTCOORDINATES,
             OUTPUTREFLECT,
@@ -29,13 +29,13 @@ setting = ""
 
 # Subprograms
 
-def dS_S1(pInputPin):
+def dSArt_S1(pInputPin):
     
     # Local Variable Initialization
     
     coordinates = []
 
-    # dS_S1 Main Process
+    # dSArt_S1 Main Process
 
     circleRadius = float(input("Radius: "))
     circlePins = int(input("Pins: "))
@@ -55,9 +55,9 @@ def dS_S1(pInputPin):
 
     print("Stage 1 - Successful Execution")
 
-def dS_S2(pInputGenerator, pOutputPin):
+def dSArt_S2(pInputGenerator, pOutputPin):
     
-    # dS_S2 Main Process
+    # dSArt_S2 Main Process
     
     with open(pInputGenerator, "r") as stringData:
         rawData = stringData.read().strip()
@@ -71,7 +71,7 @@ def dS_S2(pInputGenerator, pOutputPin):
 
     print("Stage 2 - Successful Execution")
 
-def dS_S3(pCirclePoints, pImportPin, pOutputCoord):
+def dSArt_S3(pCirclePoints, pImportPin, pOutputCoord):
     
     # Subprograms
     
@@ -81,7 +81,7 @@ def dS_S3(pCirclePoints, pImportPin, pOutputCoord):
         except:
             return None
 
-    # dS_S3 Main Process
+    # dSArt_S3 Main Process
 
     pointExportData = {}
     
@@ -115,7 +115,7 @@ def dS_S3(pCirclePoints, pImportPin, pOutputCoord):
 
     print("Stage 3 - Successful Execution")
 
-def dS_S4(pInputPath, pOutputPath):
+def dSArt_S4(pInputPath, pOutputPath):
     
     # Local Variable Initialization
     axisX = 0
@@ -154,7 +154,7 @@ def dS_S4(pInputPath, pOutputPath):
                 point2 = coordinates[index + 1]
                 coordinateList.write(f"({point1[0]},{point1[1]}),({point2[0]},{point2[1]})\n")
 
-    # dS_S4 Main Process
+    # dSArt_S4 Main Process
     # Read the original coordinates
     coordinates = importData(OUTPUTCOORDINATES)
 
@@ -180,13 +180,13 @@ def dS_S4(pInputPath, pOutputPath):
         
     print("Stage 4 - Successful Execution")
 
-def dS_S5(pGenFile, pWipe):
+def dSArt_S5(pGenFile, pWipe):
     
     # Local Variable Initialization
 
     index = 0
 
-    # dS_S5 Main Process
+    # dSArt_S5 Main Process
 
     # Iteration through WIPELIST to wipe files
     while index < len(pWipe):
@@ -201,15 +201,15 @@ def dS_S5(pGenFile, pWipe):
     with open(pGenFile, "w") as openFile:
         openFile.truncate(0)
 
-    print("dS_generatorExport.txt successfully wiped")
+    print("dSArt_generatorExport.txt successfully wiped")
     print("Stage 5 - Successful Execution")
 
 # Main Program
 
-dS_S1(OUTPUTPOINTS) # Generate Pin Positions
-dS_S2(INPUTGEN, OUTPUTPINS) # Convert Format
-dS_S3(OUTPUTPOINTS, OUTPUTPINS, OUTPUTCOORDINATES) # Generate Coordinates
-dS_S4(OUTPUTCOORDINATES, OUTPUTREFLECT) # Reflection
+dSArt_S1(OUTPUTPOINTS) # Generate Pin Positions
+dSArt_S2(INPUTGEN, OUTPUTPINS) # Convert Format
+dSArt_S3(OUTPUTPOINTS, OUTPUTPINS, OUTPUTCOORDINATES) # Generate Coordinates
+dSArt_S4(OUTPUTCOORDINATES, OUTPUTREFLECT) # Reflection
 
 # Wipe / Quit
 while setting != "Q" and setting != "W":
@@ -217,6 +217,6 @@ while setting != "Q" and setting != "W":
     setting = setting.upper()
     
     if setting == "W":
-        dS_S5(INPUTGEN, WIPELIST) # Wipe Files
+        dSArt_S5(INPUTGEN, WIPELIST) # Wipe Files
 
 print("Program Successfully Terminated")
