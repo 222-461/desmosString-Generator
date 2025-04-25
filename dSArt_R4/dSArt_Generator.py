@@ -1,5 +1,5 @@
 # ========================================================================================================================
-# dSArt Generator REWRITE v0.4
+# dSArt Generator REWRITE v0.4.1
 # ========================================================================================================================
 
 # Libraries
@@ -10,7 +10,7 @@ import os
 
 # Constants
 
-INPUTGEN = "dSArt_generatorExport.txt"  # S2 INPUT
+INPUTGEN = "dSArt_generatorInput.txt"  # S2 INPUT
 
 OUTPUTPOINTS = "dSArt_pointExport.txt"  # S1 OUTPUT & S3 INPUT
 OUTPUTPINS = "dSArt_pinExport.txt"      # S2 OUTPUT & S3 INPUT
@@ -158,6 +158,8 @@ def dSArt_S4(pInputPath, pOutputPath):
     # Read the original coordinates
     coordinates = importData(OUTPUTCOORDINATES)
 
+    coordinateReflected = [axisXReflection(point) for point in coordinates]
+
     # Get reflection axis
     reflectValidation = False
     while not reflectValidation:
@@ -170,7 +172,6 @@ def dSArt_S4(pInputPath, pOutputPath):
             coordinateReflected = [axisYReflection(point) for point in coordinates]
             reflectValidation = True
         elif axis == "s":
-            coordinateReflected = coordinates.copy()
             reflectValidation = True
         else:
             print("Invalid Input")
@@ -201,7 +202,7 @@ def dSArt_S5(pGenFile, pWipe):
     with open(pGenFile, "w") as openFile:
         openFile.truncate(0)
 
-    print("dSArt_generatorExport.txt successfully wiped")
+    print("dSArt_generatorInput.txt successfully wiped")
     print("Stage 5 - Successful Execution")
 
 # Main Program
